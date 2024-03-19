@@ -1,0 +1,21 @@
+.ContactDash {
+  width: 100%;
+  margin: auto;
+  padding-top: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 1s all !important;
+  min-height: var(--heigthinsideDashboard);
+}
+.headAllContact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  margin: 25px auto;
+}
+.headAllContact input{
+  width: 50%;
+}

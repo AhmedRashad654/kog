@@ -1,0 +1,35 @@
+.allSerAnm {
+  width: calc(100% - 15px);
+  background-color: white;
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 1s all !important;
+  min-height: var(--heigthinsideDashboard);
+}
+.AddServices {
+  margin: 10px auto;
+  padding: 20px;
+}
+.headAddJop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 25px 0;
+}
+.inp {
+  width: 100%;
+}
+
+.inp label {
+  display: inline-block;
+  margin: 10px 0;
+}
+.inp input {
+  width: 90%;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid black;
+}

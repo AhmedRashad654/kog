@@ -1,0 +1,191 @@
+.navbaronly {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  gap: 30px;
+  height: 75px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 2;
+  /* background-image: linear-gradient(to right, #133663 70%, #5c643d); */
+  z-index: 4;
+}
+
+.leftNavbar {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  width: 20%;
+  color: white;
+  justify-content: center;
+}
+.leftNavbar img {
+  width: 40px;
+}
+.centerNavbar {
+  width: 60%;
+  height: 100%;
+  position: relative;
+  padding-right: 40px;
+}
+.centerNavbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  transform: translateY(20px);
+  height: 70%;
+}
+.centerNavbar ul li,
+.centerNavbar ul li a {
+  transition: 0.3s all;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--ulNavbar);
+  font-size: 20px;
+  text-decoration: none;
+}
+.centerNavbar ul li:hover,
+.centerNavbar ul li a:hover {
+  color: white;
+}
+.centerNavbar ul li {
+  height: 100%;
+  font-size: 20px;
+}
+.rigthNavbar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  width: 25%;
+}
+.rigthNavbar button {
+  color: var(--btnNavbar);
+  font-weight: 500;
+  transition: 0.5s all;
+}
+
+.hidden {
+  display: none;
+}
+
+.dropdownonly {
+  position: fixed;
+  width: 100%;
+  height: 0;
+  top: 80px;
+  overflow: hidden;
+  transition: 0.3s all;
+}
+
+.dropdownonly ul li {
+  padding: 15px 0;
+  font-size: 20px;
+  color: #555555;
+  transition: 0.3s all;
+  width: fit-content;
+  margin: auto;
+  cursor: pointer;
+  color: #777;
+  font-weight: bold;
+}
+.dropdownonly ul li a {
+  transition: 0.3s all;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--ulNavbar);
+  font-size: 20px;
+  text-decoration: none;
+}
+.dropdownonly ul li a:hover {
+  color: white;
+}
+.dropdownonly ul li:hover {
+  color: white;
+}
+.gt {
+  display: flex;
+}
+.gt .right:first-child {
+  margin-right: -2px;
+  animation: fade 1s infinite;
+  font-size: 30px;
+  color: #777;
+}
+.gt .right:last-child {
+  margin-right: -10px;
+  animation: fadein 1s infinite;
+  font-size: 30px;
+  color: #777;
+}
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+  0% {
+    opacity: 1;
+  }
+}
+@media (max-width: 900px) {
+  #bar {
+    display: block;
+    position: absolute;
+    font-size: 25px;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: 0.3s all;
+    color: white;
+  }
+  .leftNavbar {
+    width: 50%;
+  }
+  #close {
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 25px;
+    transition: 0.3s all;
+    color: white;
+  }
+  .centerNavbar ul {
+    display: none;
+  }
+  #signin,
+  #login,
+  #logout {
+    display: none;
+  }
+  .leftNavbar {
+    border-right: none;
+  }
+  .email {
+    display: none;
+  }
+}
+.k {
+  position: relative;
+}

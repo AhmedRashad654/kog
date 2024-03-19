@@ -1,0 +1,69 @@
+.ServicesDashboard {
+  width: 100%;
+  margin: auto;
+  padding-top: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 1s all !important;
+  min-height: var(--heigthinsideDashboard);
+}
+.headServicesDash {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px auto;
+  width: 90%;
+}
+.headServicesDash input {
+  width: 50%;
+}
+@media (max-width: 576px) {
+  .headServicesDash {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .headServicesDash input {
+    width: 90%;
+  }
+}
+.alltable {
+  width: 100%;
+  margin: auto;
+  transition: 1s all;
+}
+.inform {
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.alltable {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 40px auto;
+}
+.firstServices {
+  background-color: #f2eeee;
+  border-radius: 5px;
+  max-width: 300px;
+  position: relative;
+}
+.firstServices img {
+  width: 100%;
+  height: 50%;
+}
+.firstServices button {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.firstServices h4 {
+  text-align: center;
+  margin-top: 20px;
+}
+

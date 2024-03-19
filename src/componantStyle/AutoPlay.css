@@ -1,0 +1,63 @@
+.allslick {
+  width: 80%;
+  margin: auto;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+.allslick .title {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 50px;
+  position: relative;
+}
+.title p {
+  color: var(--ulNavbar);
+  font-size: 16px;
+}
+.title h3 {
+  font-size: 30px;
+  color: var(--btnNavbar);
+}
+.allslick .title::after {
+  content: "";
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  width: 50%;
+  height: 1px;
+  background-color: #a5a3a3;
+  transform: translateX(-50%);
+}
+.slider-container {
+  width: 100%;
+  height: 280px;
+}
+
+.slider-container img:hover {
+  transform: scale(1.2);
+}
+.slick-active {
+  color: rgb(72, 72, 123);
+  font-size: 15px;
+}
+.slick-track {
+  transform: translate3d(0 0 0 0);
+}
+.slider-container ul {
+  display: none !important;
+}
+.slider-container button {
+  display: none !important;
+}
+ .hj {
+  display: flex;
+  gap: 250px;
+  margin-top: 50px;
+}
+.hj img {
+  width: 100px;
+  padding-bottom: 20px;
+  transition: 0.3s all; 
+} 
+  

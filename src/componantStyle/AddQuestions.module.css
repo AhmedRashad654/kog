@@ -1,0 +1,35 @@
+
+.AddQuestions {
+  text-align: center;
+  width: calc(100% - 15px);
+  background-color: white;
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 1s all !important;
+  min-height: var(--heigthinsideDashboard);
+}
+.AddQuestions p:first-child {
+  font-size: 20px;
+  font-weight: 400;
+  border: none !important;
+}
+.AddQuestions p:not(:first-child) {
+  width: 18%;
+  border-radius: 20px;
+  margin: 15px auto;
+  border: 1px solid #777;
+  padding: 5px 3px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.AddQuestions p:not(:first-child):hover {
+  background-color: rgb(43, 159, 226);
+}
+.check {
+  background-color: rgb(154, 160, 235);
+  color: white;
+  transform: translateX(10px);
+}

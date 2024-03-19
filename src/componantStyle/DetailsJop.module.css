@@ -1,0 +1,40 @@
+.allallall {
+  width: 100%;
+}
+.DetailsJap {
+  width: calc(100% - 15px);
+  background-color: white;
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 1s all !important;
+  min-height: 70vh;
+}
+.DetailsJap tr td:first-child {
+  cursor: pointer;
+}
+
+.alltable {
+  width: 100%;
+  margin: auto;
+}
+
+.add {
+  width: 20%;
+  margin: auto;
+  display: inline-block;
+  outline: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  text-align: center;
+  border: none;
+  padding: 10px 15px;
+  background-color: rgb(57, 173, 57);
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}

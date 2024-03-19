@@ -1,0 +1,33 @@
+.ResponseUser {
+  text-align: center;
+  width: 100% ;
+  background-color: white;
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 1s all !important;
+  min-height: var(--heigthinsideDashboard);
+}
+.response {
+  text-align: start;
+}
+
+.add {
+  width: 20%;
+  margin: auto;
+  display: inline-block;
+  outline: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  text-align: center;
+  border: none;
+  padding: 10px 15px;
+  background-color: rgb(57, 173, 57);
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
