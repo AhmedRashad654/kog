@@ -29,10 +29,11 @@ function SliderAds() {
       "https://kog.pythonanywhere.com/api/v1/home/sliders"
      );
      let response = await request.json();
+     console.log(response)
      setPeople( response );
     }
     getAllSlider();
-})
+},[])
   return (
     <section className="section">
       <div className="title">
@@ -54,7 +55,7 @@ function SliderAds() {
           return (
             <article key={id} className={position}>
               <img src={image} alt={name} className="person-img" />
-              <h4>{direction === "EN"?text_en:text_ar }</h4>
+              <h4 className={direction==="EN"?'e':'r'}>{(text_en !=="undefined" && text_ar !== "undefined")?(direction==="EN"?text_en:text_ar):""}</h4>
             </article>
           );
         })}

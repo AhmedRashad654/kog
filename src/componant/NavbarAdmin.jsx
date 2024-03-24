@@ -50,9 +50,7 @@ export default function NavbarAdmin() {
             </button>
           </div>
           <div className="arab">
-            <li>
               <EnglishAndArabic />
-            </li>
           </div>
         </li>
       </ul>

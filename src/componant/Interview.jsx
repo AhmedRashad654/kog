@@ -70,34 +70,7 @@ export default function Interview() {
       fetchChoices();
     }
   }, [ selectQuestion ] );
-  //////////////////////////////////////
-//   const formRef = useRef();
-// async function handleSubmit(e, form) {
-//   e.preventDefault();
-//   const formData = new FormData(form);
-//   formData.append("form", localStorage.getItem("numberForm"));
 
- 
-//   const bodyValue = form.querySelectorAll("[name='input']").value;
-//   formData.append("body", bodyValue);
-
-//   try {
-//     const response = await fetch(
-//       "https://kog.pythonanywhere.com/api/v1/home/responses/",
-//       {
-//         method: "POST",
-//         headers: {
-//           Authorization: `Bearer ${localStorage.getItem("token_access")}`,
-//         },
-//         body: formData,
-//       }
-//     );
-//     const result = await response.json();
-//     console.log(result);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
 
 
     return (

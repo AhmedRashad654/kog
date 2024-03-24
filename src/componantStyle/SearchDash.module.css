@@ -25,3 +25,8 @@
   color: white;
   font-size: 12px;
 }
+@media(max-width:500px){
+  .SearchDash{
+    width: 90%;
+  }
+}

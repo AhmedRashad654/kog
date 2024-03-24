@@ -6,8 +6,10 @@ import ScrollReveal from "scrollreveal";
 import { useEffect } from "react";
 import { useUser } from "../../context/Context";
 export default function DashUser() {
-  const { getAllUserDashboard } = useUser();
-  let {userDashboaerd} = useUser()
+  // const { getAllUserDashboard } = useUser();
+  // let {userDashboaerd} = useUser()
+  const [userDashboaerd, setUserDashboard] = useState([]);
+  const [records, setRecords] = useState([]);
   const [loading, setLoading] = useState(false);
   const [deletingID, setDeletingID] = useState(null);
   const [loadingDeactive, setloadingDeactive] = useState(false);
@@ -15,8 +17,7 @@ export default function DashUser() {
   const [activeID, setActiveID] = useState(null);
   const [deActiveID, setDeActiveID] = useState(null);
   const { direction } = useUser();
-  ///////////////////start///////////////////
- 
+
   ////////////scroll/////////////////
   useEffect(() => {
     const scrollRevealOption = {
@@ -25,21 +26,27 @@ export default function DashUser() {
       duration: 1000,
     };
     ScrollReveal().reveal("#ahmed", { ...scrollRevealOption });
-  }, []);
+  }, [] );
+  //////////get all user ////////////
+  async function getAllUserDashboard() {
+    try {
+      let request = await fetch(
+        "https://kog.pythonanywhere.com/api/v1/accounts/users/"
+      );
+      let response = await request.json();
+      setUserDashboard(response);
+      setRecords(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   /////////////get all user ///////////////////////
-  useEffect( () => {
-   
-       getAllUserDashboard();
-  }, [getAllUserDashboard]);
-  // ///////////search by name//////////////
-  // function searchByName( e ) {
-  //   setSearch(true)
-  //   const valueSearch = e.target.value;
-  //   // userDashboaerd= userDashboaerd.filter((user) =>
-  //   //   user.full_name.includes( valueSearch ) )
-  //   setUserDashboard( ( prev ) => prev.filter( user => user.full_name.includes( valueSearch ) ) )
-    
-  // }
+  useEffect(() => {
+    getAllUserDashboard();
+  }, []);
+  ///////////////////start///////////////////
+
+
   ////////////////function delete user //////////////////
   async function deleteUser(id) {
     try {
@@ -80,7 +87,8 @@ export default function DashUser() {
       );
       let response = await request.json();
       setloadingDeactive(false);
-      setDeActiveID(null);
+      setDeActiveID( null );
+      getAllUserDashboard();
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -104,13 +112,25 @@ export default function DashUser() {
       );
       let response = await request.json();
       setloadingActive(false);
-      setActiveID(null);
+      setActiveID( null );
+      getAllUserDashboard()
       console.log(response);
     } catch (error) {
       console.log(error);
     }
   }
-
+  //////////////search by name//////////////
+  const Filter = (event) => {
+    setRecords(
+      userDashboaerd.filter(
+        ( f ) =>
+          
+          f.full_name.includes(event.target.value) ||
+          f.mobile.includes( event.target.value )
+          
+      )
+    );
+  };
   return (
     <>
       <div className={style.allallall}>
@@ -119,14 +139,14 @@ export default function DashUser() {
             <NavLink to="/dashboard/adduser" className="btn btn-success">
               {direction === "EN" ? "Add New" : "   أضافة جديد"}
             </NavLink>
-            {/* <input
+            <input
               type="text"
               placeholder={`${
-                direction === "EN" ? "search By Name" : "بحث باستخدام الاسم"
+                direction === "EN" ? "search By Name or phone" : " بحث باستخدام الاسم او رقم الهاتف"
               }`}
               className="form-control"
-              ref={sear}
-            /> */}
+              onChange={Filter}
+            />
           </div>
           <table>
             <thead>
@@ -139,7 +159,7 @@ export default function DashUser() {
               </tr>
             </thead>
             <tbody>
-              {userDashboaerd.map((userTr, index) => (
+              {records.map((userTr, index) => (
                 <tr key={index}>
                   <td>{userTr.full_name}</td>
                   <td>{userTr.role}</td>

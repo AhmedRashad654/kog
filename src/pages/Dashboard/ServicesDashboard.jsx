@@ -5,9 +5,11 @@ import { useUser } from "../../context/Context";
 import '../../componantStyle/last.css'
 import ScrollReveal from "scrollreveal";
 export default function ServicesDashboard() {
-  const { getAllServicesDashboard, servicesDashboaed, direction } = useUser();
+  const { direction } = useUser();
   const [ loading, setLoading ] = useState( false );
   const [ deletingID, setDeletingID ] = useState( false );
+  const [ servicesDashboaed, setServicesDashboard ] = useState( [] );
+  const [records,setRecords]  =useState([])
   ///////////////
   useEffect(() => {
     const scrollRevealOption = {
@@ -18,45 +20,32 @@ export default function ServicesDashboard() {
     ScrollReveal().reveal("#ahmed", { ...scrollRevealOption });
   }, []);
 
-
+  ///////////////get Services /////////////
+   async function getAllServicesDashboard() {
+     try {
+       let request = await fetch(
+         "https://kog.pythonanywhere.com/api/v1/home/services/"
+       );
+       let response = await request.json();
+       setServicesDashboard(response);
+       setRecords(response);
+     } catch (error) {
+       console.log(error);
+     }
+   }
 
 
   /////////////
   useEffect( () => {
     getAllServicesDashboard();
-    
-  }, [ getAllServicesDashboard ] )
+  }, [ ] )
   
-  ///////////search by name//////////////
-  // const collserv = useRef()
-  // function searchByName(e) {
-  //   const valueSearch = e.target.value;
-  //   const filterServices = servicesDashboaed.filter(
-  //     (servic) =>
-  //       (servic.title_en && servic.title_en.includes(valueSearch)) ||
-  //       (servic.title_ar && servic.title_ar.includes(valueSearch))
-  //   );
-  //   const resultServices = filterServices
-  //     .map(
-  //       (servic, index) =>
-  //         `
-  //           <div className="firstServices" key=${index}>
-  //             <img src=${servic.image} alt="" />
-  //             <h6> ${ servic.title_ar ||servic.title_en }</h6>
-  //             <div className=${style.twobtn}>
-  //               <button>حذف</button>
-  //             </div>
-  //           </div>
-  //       `
-  //     )
-  //     .join("");
-  //   collserv.current.innerHTML = resultServices;
-  // }
+//////////////////////delete services////////////////////////////
   async function deleteServices( id ) {
     try {
-          setLoading(true);
+      setLoading(true);
      setDeletingID(id);
-     let request =  await fetch(
+       await fetch(
       `https://kog.pythonanywhere.com/api/v1/home/services/${id}/`,
       {
         method: "DELETE",
@@ -66,7 +55,6 @@ export default function ServicesDashboard() {
         },
       }
       );
-       await request.json();
        setLoading(false);
        setDeletingID(null);
        getAllServicesDashboard();
@@ -75,22 +63,33 @@ export default function ServicesDashboard() {
     }
  
   }
+  const Filter = ( event ) => {
+    setRecords(
+      servicesDashboaed.filter(
+        (f) =>
+          f.title_en.includes(event.target.value) ||
+          f.title_ar.includes(event.target.value)
+      )
+    );
+  }
   return (
     <>
       <div className={style.ServicesDashboard}>
         <div className={style.headServicesDash} id="ahmed">
           <NavLink to="/dashboard/addservices" className="btn btn-success">
-            أضافة جديد
+            {direction === "EN" ? "Add New" : "    أضافة جديد"}
           </NavLink>
-          {/* <input
+          <input
             type="text"
-            placeholder="بحث باستخدام الاسم"
+            placeholder={
+              direction === "EN" ? "search By name" : "بحث باستخدام الاسم"
+            }
             className="form-control"
-            // onChange={searchByName}
-          /> */}
+            onChange={Filter}
+          />
         </div>
-        <div className={style.alltable} >
-          {servicesDashboaed.map((servic, index) => (
+        <div className={style.alltable}>
+          {records.map((servic, index) => (
             <div className={style.firstServices} key={index}>
               <img src={servic.image} alt="" />
               <h4 className="h6">

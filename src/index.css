@@ -31,6 +31,16 @@ button {
 a {
   text-decoration: none;
 }
+.error {
+  color: rgb(238, 44, 44);
+}
+@media (max-width: 600px) {
+  tr,
+  th,
+  td {
+    font-size: 10px ;
+  }
+}
 /* last  */
 /* bootstrap */
 @media (max-width: 700px) {
@@ -69,7 +79,7 @@ a {
     background-color: var(--bs-btn-bg);
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    font-size: 9px !important;
-    padding: 3px !important;
+    font-size: 10px !important;
+    padding: 4px !important;
   }
 }

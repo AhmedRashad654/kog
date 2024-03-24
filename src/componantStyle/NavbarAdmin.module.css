@@ -4,55 +4,23 @@
   box-shadow: 2px 2px gray;
   padding: 5px 0;
 }
-.NavbarAdmin ul > li > div {
-  display: flex;
-  direction: ltr;
-  width: 100%;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: center;
-  color: white;
-  position: relative;
-}
-.NavbarAdmin ul > li > div :nth-child(3) {
-  color: rgb(101, 99, 99);
-}
-.NavbarAdmin ul > li > div :nth-child(1) {
-  position: relative;
-}
-.NavbarAdmin ul > li > div > span {
-  position: absolute;
-  top: 10px;
-  font-weight: bold;
-  left: 20px;
-  font-size: 10px;
-}
-.NavbarAdmin ul > li > div > img {
-  width: 30px;
-  border-radius: 50%;
-}
 .NavbarAdmin img:last-child {
   width: 40px;
 }
+
 .NavbarAdmin ul {
   display: flex;
-  width: 90%;
+  width: 95%;
   margin: auto;
   justify-content: space-between;
 }
-ul li {
+ul li:last-child {
   display: flex;
-  gap: 5px;
+  gap: 20px;
   align-items: center;
+  justify-content:flex-end;
   width: 30%;
 }
-.NavbarAdmin ul li i {
-  color: wheat;
-}
-.NavbarAdmin ul li a {
-  color: black;
-}
-.arab {
-  background-color: red;
-  color: yellow;
-}
+
+
+

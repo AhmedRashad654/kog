@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "../../componantStyle/AddServicesEnglish.module.css";
 import { useNavigate } from "react-router-dom";
 import Joi from "joi";
+import { useUser } from "../../context/Context";
 export default function AddServicesEnglish() {
   const navigate = useNavigate();
   const [servicesEnglish, setServicesEnglish] = useState({
@@ -15,7 +16,8 @@ export default function AddServicesEnglish() {
   }
   const [errorListServices, setErrorListServices] = useState(null);
   const [errorBackServices, setErrorBackServices] = useState(null);
-  const [loadingServices, setLoadingServices] = useState(false);
+  const [ loadingServices, setLoadingServices ] = useState( false );
+  const {direction} = useUser()
   ////////////function handleChange///////////////
   function handleChange(e) {
     setServicesEnglish((prevState) => ({
@@ -91,7 +93,7 @@ export default function AddServicesEnglish() {
               <span className="sr-only"></span>
             </div>
           ) : (
-            "أضافة خدمة"
+            <> {direction === "EN" ? "Add Service" : "اضافة خدمة"}</>
           )}
         </button>
         <button
@@ -100,11 +102,14 @@ export default function AddServicesEnglish() {
             navigate(-1);
           }}
         >
-          رجوع
+          {direction === "EN" ? "Back" : " رجوع"}
         </button>
       </div>
       <div className={style.inp}>
-        <label htmlFor="image">اختر الصورة</label>
+        <label htmlFor="image">
+          {" "}
+          {direction === "EN" ? "choose image" : "اختر صورة"}
+        </label>
         <br />
         <input
           type="file"
@@ -119,7 +124,12 @@ export default function AddServicesEnglish() {
         )}
       </div>
       <div className={style.inp}>
-        <label htmlFor="title_ar">اسم الخدمة باللغة العربية</label>
+        <label htmlFor="title_ar">
+          {" "}
+          {direction === "EN"
+            ? "name services Arabic"
+            : "اسم الخدمة باللغة العربية"}
+        </label>
         <br />
         <input
           type="text"
@@ -129,7 +139,11 @@ export default function AddServicesEnglish() {
         />
       </div>
       <div className={style.inp}>
-        <label htmlFor="title_en">اسم الخدمة باللغة الانجليزية</label>
+        <label htmlFor="title_en">
+          {direction === "EN"
+            ? "name services English"
+            : "اسم الخدمة باللغة الانجليزية"}{" "}
+        </label>
         <br />
         <input
           type="text"
@@ -139,7 +153,11 @@ export default function AddServicesEnglish() {
         />
       </div>
       <div className={style.inptextarea}>
-        <label htmlFor="description_ar">وصف الخدمة باللغة العربية</label>
+        <label htmlFor="description_ar">
+          {direction === "EN"
+            ? "description service Arabic"
+            : "وصف الخدمة باللغة العربية"}{" "}
+        </label>
         <br />
         <textarea
           name="description_ar"
@@ -149,7 +167,11 @@ export default function AddServicesEnglish() {
         ></textarea>
       </div>
       <div className={style.inptextarea}>
-        <label htmlFor="description_en">وصف الخدمة باللغة الانجليزية</label>
+        <label htmlFor="description_en">
+          {direction === "EN"
+            ? "description service English"
+            : "وصف الخدمة باللغة الانجليزية"}{" "}
+        </label>
         <br />
         <textarea
           name="description_en"
