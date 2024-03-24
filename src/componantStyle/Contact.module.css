@@ -16,6 +16,24 @@
   width: 85%;
   margin: 25px auto;
 }
+.alltable {
+  margin: auto;
+}
+table {
+  width: 100%;
+  border-radius: 10px;
+  border-collapse: collapse;
+  transition: 1s all;
+  text-align: center;
+}
+tr,
+td,
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 7px 0;
+  color: #2c3d76;
+}
 .headAllContact input{
   width: 50%;
 }
